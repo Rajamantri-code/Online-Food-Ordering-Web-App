@@ -1,0 +1,225 @@
+
+<html>
+<head>
+        <title> DANUSHA HOTEL BIBILE </title>
+        <link rel="stylesheet" type="text/css" href="page.css">
+<style>
+    * {
+        color: #fff;
+    }
+    input {
+        color: black;
+    }
+    .row {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        column-gap: 20px;
+        background: rgba(12, 2, 2, 0.363);
+        width: 50%;
+        height: 80vh;
+        border-radius: 20px;
+        position: absolute;
+        left: 25%;
+    }
+    .tb2{
+        margin-bottom: 450px;
+    }
+    .col2 input {
+        width: 50px;
+    }
+    form h1 {
+        margin-top: 0px;
+        text-align: center;
+        color: darkviolet;
+    }
+    form input[type="button"]{
+        padding: 15px;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 25px;
+    }
+    .h1{
+        margin-top: 50px;
+    }
+    
+    
+</style>
+</head>
+<body style="background-color: rgba(0, 0, 0, 0.897);">
+          
+    <nav>
+        <div class="logo">
+            <a href="">DANUSHA HOTEL</a>
+        </div>     
+           <ul>
+                <a href="Home.html"><li>Home</li></a>
+                <a href="About.html"><li>About</li></a>
+                <a href="Contact.html"><li>Contact</li></a>
+                <a href="Other.html"><li>Others</li></a>
+            </ul>	
+        </nav>
+<br><br><br><br> 
+    <hr>
+
+<form method="post">
+    <div class="h1"><h1>Order your Favarite</h1></div>
+    <div class="row">
+        <div class="col1">
+            <table class="tb1">
+            <tr><td>Name: </td><td><input type="text" id="firstName" name="firstName"></td></tr>
+            <tr><td>Mobile: </td><td><input type="text" name="mobile" name="number"></td></tr>
+            <tr><td>Email: </td><td><input type="email" name="email"></td></tr>
+            <tr><td>Address: </td><td><input type="text" name="lastName"></td></tr>
+            <tr><td><button type="submit">Submit</button></td></tr>
+        </table>
+<br><br><br>
+        </div>
+        <div class="col2">
+            <table class="tb2">
+            <tr><th>NAME</th><th>Y/N</th><th>QTY</th><th>PRICE</th>
+            <tr><td>Burger: </td><td><input type="checkbox" name="" id=""></td><td> <input type="text" name="" id="txtNum1">&nbsp;&nbsp;</td><td>Price: <input type="text" name="" id="txtSum1" disabled style="width: 100px;"></td></tr><br><br>
+            <tr><td>Pizza: </td><td><input type="checkbox" name="" id=""></td><td> <input type="text" name="" id="txtNum2">&nbsp;&nbsp;</td><td>Price: <input type="text" name="" id="txtSum2" disabled style="width: 100px;"></td></tr><br><br>
+            <tr><td>Sandwich: </td><td><input type="checkbox" name="" id=""></td><td> <input type="text" name="" id="txtNum3">&nbsp;&nbsp;</td><td>Price: <input type="text" name="" id="txtSum3" disabled style="width: 100px;"></td></tr><br><br>
+            <tr><td>Noodles: </td><td><input type="checkbox" name="" id=""></td><td> <input type="text" name="" id="txtNum4">&nbsp;&nbsp;</td><td>Price: <input type="text" name="" id="txtSum4" disabled style="width: 100px;"></td></tr><br><br>
+            <tr<><td>Spaghetti: </td><td><input type="checkbox" name="" id=""></td><td> <input type="text" name="" id="txtNum5">&nbsp;&nbsp;</td><td>Price: <input type="text" name="" id="txtSum5" disabled style="width: 100px;"></td></tr><br><br>
+            <tr><td>Friedrice: </td><td><input type="checkbox" name="" id=""></td><td> <input type="text" name="" id="txtNum6">&nbsp;&nbsp;</td><td>Price: <input type="text" name="" id="txtSum6" disabled style="width: 100px;"></td></tr><br><br>
+            <tr><td>Biriyani: </td><td><input type="checkbox" name="" id=""></td><td> <input type="text" name="" id="txtNum7">&nbsp;&nbsp;</td><td>Price: <input type="text" name="" id="txtSum7" disabled style="width: 100px;"></td></tr><br><br>
+            <tr><td>Koththu: </td><td><input type="checkbox" name="" id=""></td><td> <input type="text" name="" id="txtNum8">&nbsp;&nbsp;</td><td>Price: <input type="text" name="" id="txtSum8" disabled style="width: 100px;"></td></tr><br><br>
+            <tr><td>Rolls: </td><td><input type="checkbox" name="" id=""></td><td> <input type="text" name="" id="txtNum9">&nbsp;&nbsp;</td><td>Price: <input type="text" name="" id="txtSum9" disabled style="width: 100px;"></td></tr><br><br>
+            <tr><td>Pasta: </td><td><input type="checkbox" name="" id=""> </td><td><input type="text" name="" id="txtNum10">&nbsp;&nbsp;</td><td>Price: <input type="text" name="" id="txtSum10" disabled style="width: 100px;"></td></tr><br><br>
+            <tr><td>Bread: </td><td><input type="checkbox" name="" id=""></td><td> <input type="text" name="" id="txtNum11">&nbsp;&nbsp;</td><td>Price: <input type="text" name="" id="txtSum11" disabled style="width: 100px;"></td></tr><br><br>
+            <tr><td>Buns: </td><td><input type="checkbox" name="" id=""></td><td> <input type="text" name="" id="txtNum12">&nbsp;&nbsp;</td><td>Price: <input type="text" name="" id="txtSum12" disabled style="width: 100px;"></td></tr><br><br>
+        
+           <tr><td> Total: </td><td colspan="2"><input type="text" name="" id="total" disabled style="width: 100px;"></td><td></td></td></tr><br><br>
+                <tr><td></td><td></td><td></td><td></td></tr>
+            <tr><td><input type="button" value="Add" onclick="add()"></td>
+            <td><input type="button" value="Reset" onclick="reset()"></td></tr>
+            <tr><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td></tr>
+            <tr><td colspan="4"><b><i><font style="color:blue; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 24px;">Free Delivery</font></i></b></td></tr></table>
+        </div>
+    </div>
+    </form>
+
+
+
+
+
+
+<script>
+
+function reset ()
+{
+    document.getElementById("txtNum1").value = "0";
+    document.getElementById("txtSum1").value = "0";
+
+    document.getElementById("txtNum2").value = "0";
+    document.getElementById("txtSum2").value = "0";
+
+    document.getElementById("txtNum3").value = "0";
+    document.getElementById("txtSum3").value = "0";
+
+    document.getElementById("txtNum4").value = "0";
+    document.getElementById("txtSum4").value = "0";
+
+    document.getElementById("txtNum5").value = "0";
+    document.getElementById("txtSum5").value = "0";
+
+    document.getElementById("txtNum6").value = "0";
+    document.getElementById("txtSum6").value = "0";
+
+    document.getElementById("txtNum7").value = "0";
+    document.getElementById("txtSum7").value = "0";
+
+    document.getElementById("txtNum8").value = "0";
+    document.getElementById("txtSum8").value = "0";
+
+    document.getElementById("txtNum9").value = "0";
+    document.getElementById("txtSum9").value = "0";
+
+    document.getElementById("txtNum10").value = "0";
+    document.getElementById("txtSum10").value = "0";
+
+    document.getElementById("txtNum11").value = "0";
+    document.getElementById("txtSum11").value = "0";
+
+    document.getElementById("txtNum12").value = "0";
+    document.getElementById("txtSum12").value = "0";
+
+    document.getElementById("total").value = "0";
+}
+function add ()
+{
+    var num1 = Number(1000);
+    var num2 = Number(document.getElementById("txtNum1").value);
+    var sum1 =  num1 * num2;
+    document.getElementById("txtSum1").value = String("Rs." + sum1);
+
+
+    var num10 = Number(800);
+    var num20 = Number(document.getElementById("txtNum2").value);
+    var sum2 =  num10 * num20;
+    document.getElementById("txtSum2").value = String("Rs." + sum2);
+
+    var num3 = Number(200);
+    var num4 = Number(document.getElementById("txtNum3").value);
+    var sum3 =  num3 * num4;
+    document.getElementById("txtSum3").value = String("Rs." + sum3);
+
+    var num5 = Number(700);
+    var num6 = Number(document.getElementById("txtNum4").value);
+    var sum4 =  num5 * num6;
+    document.getElementById("txtSum4").value = String("Rs." + sum4);
+
+    var num7 = Number(700);
+    var num8 = Number(document.getElementById("txtNum5").value);
+    var sum5 =  num7 * num8;
+    document.getElementById("txtSum5").value = String("Rs." + sum5);
+
+    var num9 = Number(900);
+    var num10 = Number(document.getElementById("txtNum6").value);
+    var sum6 =  num9 * num10;
+    document.getElementById("txtSum6").value = String("Rs." + sum6);
+
+    var num11 = Number(1700);
+    var num12 = Number(document.getElementById("txtNum7").value);
+    var sum7 =  num11 * num12;
+    document.getElementById("txtSum7").value = String("Rs." + sum7);
+
+    var num13 = Number(600);
+    var num14 = Number(document.getElementById("txtNum8").value);
+    var sum8 =  num13 * num14;
+    document.getElementById("txtSum8").value = String("Rs." + sum8);
+
+    var num15 = Number(100);
+    var num16 = Number(document.getElementById("txtNum9").value);
+    var sum9 =  num15 * num16;
+    document.getElementById("txtSum9").value = String("Rs." + sum9);
+
+    var num17 = Number(700);
+    var num18 = Number(document.getElementById("txtNum10").value);
+    var sum10 =  num17 * num18;
+    document.getElementById("txtSum10").value = String("Rs." + sum10);
+
+    var num19 = Number(300);
+    var num20 = Number(document.getElementById("txtNum11").value);
+    var sum11 =  num19 * num20;
+    document.getElementById("txtSum11").value = String("Rs." + sum11);
+
+    var num21 = Number(100);
+    var num22 = Number(document.getElementById("txtNum12").value);
+    var sum12 =  num21 * num22;
+    document.getElementById("txtSum12").value = String("Rs." + sum12);
+
+
+    var num21 = Number(sum1,sum2,sum3,sum4,sum5,sum6,sum7,sum8,sum9,sum10,sum11,sum12);
+    document.getElementById("total").value = String("Rs." + (sum1 + sum2 + sum3 + sum4 + sum5 + sum6 + sum7 + sum8 + sum9 + sum10 + sum11 + sum12));
+}
+</script>
+
+
+
+    </body>
+    </html>

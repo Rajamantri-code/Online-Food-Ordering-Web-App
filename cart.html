@@ -1,0 +1,646 @@
+<html>
+    <head>
+
+        <title>
+            Cart
+        </title>
+		<script src="log.js"></script>
+        <link rel="stylesheet" href="cart.css">
+		<style>
+		.box{
+		max-width:95%;
+		dispaly: flex;
+		flex-direction: column;
+		aligh-items:center;
+		justify-content:space-between;
+		border:1px solid goldenrod;
+		border-radius:5px;
+		padding:15px;
+		
+		}
+		
+		.add_to_cart{
+		width:100%;
+		position:relative;
+		border:none;
+		border-radius:5px;
+		background-color:goldenrod;
+		padding: 7px 25px;
+		cursor:pointer;
+		color:white;
+		}
+		
+		.add_to_cart:hover{
+		background-color:#333;
+		}
+		
+		.body{
+		display:flex;
+		}
+		
+		.item{
+		border:1px solid goldenrod;
+		height:350px;
+		width:175px;
+		text-align:center;
+		display:flex;
+		padding:15px;
+		
+		}
+
+		
+		
+		h2{
+		color:red;
+		text-align:center;
+		}
+		
+		img{
+		height:175px;
+		width:175px;
+		object-fit:cover;
+		object-position:center;
+		}
+		
+		.itemlist{
+		
+		display:flex;
+		flex-direction: row;
+		justify-content: space-around;
+		flex-flow: wrap;
+		
+		}
+		.itemlist.active{
+			
+    		transform: translate(0%,60%) scale(1);
+    		transition: top 0ms ease-in-out 200ms,
+                            opacity 200ms ease-in-out 0ms,
+                            transform  20ms ease-in-out 0ms;
+		}
+		
+		.items{
+		padding:20px;
+		}
+		
+		.sidecart{
+		width:5%;
+		flex-direction: flex-end;
+		aligh-items:center;
+		justify-content:space-between;
+		border:1px solid goldenrod;
+		border-radius:5px;
+		padding:15px;
+        visibility: hidden;
+		}
+        .sidecart.active{
+		width:45%;
+		flex-direction: flex-end;
+		aligh-items:center;
+		justify-content:space-between;
+		border:1px solid goldenrod;
+		border-radius:5px;
+		padding:15px;
+        visibility: visible;
+		}
+		
+		.table-content{
+		border-collapse:collapse;
+		margin:25px 0;
+		font-size:0.4cm;
+		min-width:400px;
+		border-radius: 5px 5px 0 0;
+		position: absolute;
+		}
+		
+		.table-content tr th{
+		background-color: #009879;
+		color: #ffffff;
+		text-align: left;
+		font-weight: bold;
+		}
+		
+		.table-content th,
+		.table-content td{
+		padding: 12px 15px;
+		}
+		
+		.table-content tbody tr{
+		border-bottom:1px solid #dddddd;
+		}
+		
+		.table-content tbody tr:nth-of-type(even) {
+		background-color: #009879;
+		}
+		
+		
+		.table-content tbody tr:last-of-type{
+		border-bottom: #009879;
+		}
+		
+		button{
+			height:20px;
+		background-color: red;
+		color: #fff;
+		text-decoration: none;
+		border-radius: 5px;
+		border:none;
+		}
+		
+		.clear{
+		width:70px;
+		background-color: goldenrod;
+		color: #fff;
+		text-decoration: none;
+		border:none;
+		border-radius: 5px;
+		}
+		
+		.buy{
+		margin-top:5px;
+		width:150px;
+		height:40px;
+		background-color: green;
+		color: #fff;
+		text-decoration: none;
+		border-radius: 5px;
+		border:none;
+		}
+
+
+.container{
+	position:absolute;
+	
+	opacity:0;
+    transform: translate(-50%,-50%) scale(1);
+    transition: top 0ms ease-in-out 200ms,
+                            opacity 200ms ease-in-out 0ms,
+                            transform  20ms ease-in-out 0ms;
+}
+
+.container.active{
+	visibility:visible;
+	opacity:1;
+    transform: translate(0%,0%) scale(1);
+    transition: top 0ms ease-in-out 200ms,
+                            opacity 200ms ease-in-out 0ms,
+                            transform  20ms ease-in-out 0ms;
+}
+
+
+
+.container form{
+	
+  padding:20px;
+  width:98%;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0,0,0,.1);
+}
+
+.container form .row{
+  display: flex;
+  flex-wrap: wrap;
+  gap:15px;
+}
+
+.container form .row .col{
+  flex:1 1 250px;
+}
+
+.container form .row .col .title{
+  font-size: 20px;
+  color:#333;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.container form .row .col .inputBox{
+  margin:15px 0;
+}
+
+.container form .row .col .inputBox span{
+  margin-bottom: 10px;
+  display: block;
+}
+
+.container form .row .col .inputBox input{
+  width: 100%;
+  border:1px solid #ccc;
+  padding:10px 15px;
+  font-size: 15px;
+  text-transform: none;
+}
+
+.container form .row .col .inputBox input:focus{
+  border:1px solid #000;
+}
+
+.container form .row .col .flex{
+  display: flex;
+  gap:15px;
+}
+
+.container form .row .col .flex .inputBox{
+  margin-top: 5px;
+}
+
+.container form .row .col .inputBox img{
+  height: 34px;
+  margin-top: 5px;
+  filter: drop-shadow(0 0 1px #000);
+}
+
+.submit-btn{
+  width: 50%;
+  padding:12px;
+  font-size: 17px;
+  background: #27ae60;
+  color:#fff;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.submit-btn:hover{
+  background: #2ecc71;
+}
+.foot{
+	display:flex;
+}
+.closebtn{
+	width: 50%;
+  padding:12px;
+  font-size: 17px;
+  background-color: red;
+  color:#fff;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.closebtn:hover{
+	background-color: orange;
+}
+		
+.loginfo {
+	display: flex;
+	justify-content:flex-end;
+}	
+
+.info{
+	padding: 10px 20px;
+	color:#fff;
+	background-color: orange;
+
+}
+
+.info1{
+	visibility:hidden;
+	margin-top:-2%;
+}
+
+.logout{
+	margin-top:20px;
+		width:150px;
+		height:40px;
+		background-color: red;
+		color: #fff;
+		text-decoration: none;
+		border:none;
+		}
+.cart{
+	margin-top:20px;
+		width:150px;
+		height:40px;
+		background-color: yellow;
+		color: red;
+		text-decoration: none;
+		border:none;
+    font-size: 0.9rem;
+		}
+		
+	
+		
+		
+		</style>
+
+        
+    </head>
+    <body bgcolor="gray">
+	
+
+	<div class="container">
+					<form action="" method="post" autocomplete="off">
+							<input type="text" class="info1" id="logname" name="accname" value="<?php echo $_SESSION['username']; ?>">
+							<input type="email" class="info1" id="logemail" name="accemail" value="<?php echo $_SESSION['email']; ?>" >
+							
+
+						<div class="row">
+
+							<div class="col">
+
+								<h3 class="title">billing address</h3>
+
+								<div class="inputBox">
+									<span>Full name :</span>
+									<input type="text" placeholder="Enter name" name="fullname" required>
+								</div>
+								<div class="inputBox">
+									<span>Email :</span>
+									<input type="email" placeholder="example@example.com" name="email" required>
+								</div>
+								<div class="inputBox">
+									<span>Address :</span>
+									<input type="text" placeholder="room - street - locality" name="address" required>
+								</div>
+								<div class="inputBox">
+									<span>City :</span>
+									<select>
+										<option>--Select--</option>
+										<option>Monaragala</option>
+										<option>Badulla</option>
+										<option>Anuradhapura</option>
+										<option>Polonnaruwa</option>
+										<option>Colombo</option>
+										<option>Jafna</option>
+										<option>Gamoaha</option>
+										<option>Mathale</option>
+										<option>Kandy</option>
+										<option>Rathnapura</option>
+										<option>Nuwaraeliya</option>
+										<option>Mathara</option>
+										<option>Galle</option>
+										<option>Hambanthota</option>
+										<option>Trinco</option>
+										<option>Batticaloa</option>
+										<option>Ampara</option>
+										<option>Mahiyanganaya</option>
+			   
+									</select>
+			
+								</div>
+
+								<div class="flex">
+									<div class="inputBox">
+										<span>state :</span>
+										<Select>
+											<option value="">--Select--</option>
+											<option>Uva</option>
+											<option>Estern</option>
+											<option>Western</option>
+											<option>South</option>
+											<option>North</option>
+											<option>North centrel</option>
+											<option>Central</option>
+											<option>Sabaragamu</option>
+											<option>Wayamba</option>
+										</Select>
+									</div>
+									<div class="inputBox">
+										<span>Postal code :</span>
+										<input type="number" name="postal" required>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="col">
+
+								<h3 class="title">payment</h3>
+
+								<div class="inputBox">
+									<span>cards accepted :</span>
+									<img src="card_img.png" width="100px"alt="">
+								</div>
+								<div class="inputBox">
+									<span>Name on card :</span>
+									<input type="text" placeholder="Disanayaka Dasun" name="holderName" required>
+								</div>
+								<div class="inputBox">
+									<span>Credit card number :</span>
+									<input type="number" placeholder="1111-2222-3333-4444" name="cardNumber" required>
+								</div>
+								<div class="inputBox">
+									<span>Exp month :</span>
+									<input type="text" placeholder="january" name="exMonth" required>
+								</div>
+
+								<div class="flex">
+									<div class="inputBox">
+										<span>Exp year :</span>
+										<input type="number" placeholder="2022" name="exYear" required>
+									</div>
+									<div class="inputBox">
+										<span>CVV :</span>
+										<input type="number" placeholder="1234" name="cvv" required>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="foot">
+						<input type="submit" value="Place Order" class="submit-btn" name="placeOrder">
+						<input type="submit" value="Close" class="closebtn">
+                            
+                            
+						</div>
+
+						
+
+					</form>
+					
+				
+                        
+                </div>
+		
+        <div class="body">
+
+			<div class="box">
+				<div class="nav">
+					
+					<div>
+						<div class="loginfo"> 
+							
+							<h3 class="info" id="logname" ><?php echo "welcome ".$_SESSION['username']; ?></h3>
+							<h3 class="info" id="logemail"  ><?php echo $_SESSION['email']; ?></h3>
+							<a href="login.php"><input type="submit"  name="logout" class="logout" value="Logout"></a>
+                            <input type="submit" id="cart1" name="cart" class="cart" value="Cart" >
+                            
+							
+							
+						</div>
+					
+                        <h2>Shopping Items</h2>
+					</div>
+						
+						
+						
+						
+				</div>
+						
+				<div class="itemlist">
+
+                        
+                    <?php
+                            
+
+                        $query = "select * from cart";
+                        $result = mysqli_query($conn, $query);
+
+                        while ($row =mysqli_fetch_array($result)){?>
+						<div class="items">
+                            <div class="item">
+                                <form action="cart.php?id=<?=$row['id'] ?>" method="post">
+                                    <img src="<?= $row['image'] ?>" style='height: 150px;' alt="">
+                                    <h5 class="text3" ><?= $row['name'] ?></h5>
+                                            <h5 class="text3" >Rs:<?= number_format($row['price'],2); ?></h5>
+                                            <input type="hidden" name="name" value="<?= $row['name'] ?>">
+                                            <input type="hidden" name="price" value="<?= $row['price'] ?>">
+                                            <input type="number" name="quantity" value="1" class="qty"><br><br>
+                                            <input type="submit" name="add_to_cart" class="add_to_cart" value="Add to cart">
+                                </form>
+
+                            </div>
+						</div>
+                        <?php }
+
+                    ?>
+                </div>
+			</div>
+
+                    
+                    
+            <div class="sidecart">
+                <h2>Selected Items</h2>
+                <div class="classtable">
+                    <?php
+                        $output = "";
+                        $output .= "
+                        <table class='table-content'>
+                        <tr>
+                        <th>ID</th>
+                        <th>ITEM NAME</th>
+                        <th>PRICE</th>
+                        <th>QUANTITY</th>
+                        <th>TOTAL PRICE</th>
+                        <th>ACTION</th>
+                        </tr>
+                        ";
+
+                        if(!empty($_SESSION['cart1'])){
+                            $total = 0;
+                            foreach($_SESSION['cart1'] as $key => $value){
+                            $output .= "
+                            <tr>
+                            <td>".$value['id']."</td>
+                            <td>".$value['name']."</td>
+                            <td>".$value['price']."</td>
+                            <td>".$value['quantity']."</td>
+                            <td>Rs: ".number_format($value['price'] * $value['quantity'],2)."</td>
+                            <td><a href='cart.php?action=remove&id=".$value['id']."'>
+                            <button>Remove</button>
+                            </a>
+                            </td>
+                            ";
+                                    
+                                   
+                            $total = $total + $value['quantity'] * $value['price'];
+                        	}
+
+                            $output .= "
+                                <tr>
+                                <td colspan='3'></td>
+                                <td><b>Total Price</b></td>
+                                <td>Rs: ".number_format($total,2)."</td>
+                                <td>
+                                <a href='cart.php?action=clearall'>
+                                <button class='clear'>Clear all</button></a>
+								
+                                </td>
+                                ";
+                        }
+
+                        echo $output;
+						
+                	?>
+					
+					
+					<button id="open" class="buy">Place Order</button>
+					
+
+					
+					
+
+				
+					
+				</div>
+
+				
+            </div>
+
+			
+			
+		</div>
+
+		
+
+        
+
+        <?php
+        if (isset($_GET['action'])){
+            if ($_GET['action'] == "clearall"){
+                unset($_SESSION['cart1']);
+            }
+			
+			
+			
+
+            if ($_GET['action'] == "remove"){
+                foreach ($_SESSION['cart1'] as $key => $value){
+                    if ($value['id'] == $_GET['id']){
+                        unset($_SESSION['cart1'][$key]);
+                    }
+                }
+            }
+		}
+        ?>
+
+<script>
+
+           
+
+document.querySelector("#open").addEventListener("click", function(){
+	document.querySelector(".container").classList.add("active");
+})
+
+
+
+document.querySelector(".container .closebtn").addEventListener("click", function(){
+	document.querySelector(".container").classList.remove("active");
+})
+
+document.querySelector("#open").addEventListener("click", function(){
+	document.querySelector(".itemlist").classList.add("active");
+})
+
+
+
+document.querySelector(".container .closebtn").addEventListener("click", function(){
+	document.querySelector(".itemlist").classList.remove("active");
+})
+    
+document.querySelector("#cart1").addEventListener("click", function(){
+	document.querySelector(".sidecart").classList.add("active");
+})
+
+
+
+
+
+
+
+
+</script>
+		
+        
+            
+    </body>
+</html>
